@@ -1,0 +1,36 @@
+so im going to give you a context, im building a app which will turn out into being an app like uber app, so what the app or website does is the user uses it like google maps but for weather related destinations, such as hiking, offroading, or any destination from a particular place to a particular place, so what the app does is the user enters the app, he/she selects the place they want to go, it tells them the usual distance,time it will take with various modes(the modes will be like sports,driving,walking and offroading i guess), it determines the conditions of the weather and generates the average condition and shows the current and expected condition until arrival to the destination and then start or go button will start until they finish, if theres any changes in weather condition or reported flooding the app will alert the user
+
+
+weather-nav-app/
+├── backend/                # Java Spring Boot Application
+│   ├── src/
+│   │   ├── main/
+│   │   │   ├── java/com/app/weatherapp/
+│   │   │   │   ├── controller/    # REST Endpoints
+│   │   │   │   ├── service/       # Weather & Routing Logic
+│   │   │   │   ├── repository/    # Database Access
+│   │   │   │   ├── model/         # Entities (Route, User, Mode)
+│   │   │   │   ├── dto/           # Data Transfer Objects
+│   │   │   │   └── config/        # Security & API Configs
+│   │   │   └── resources/
+│   │   │       └── application.yml
+│   └── pom.xml             # Maven dependencies
+├── frontend/               # React Application (Vite-based)
+│   ├── src/
+│   │   ├── components/     # Reusable UI (Map, WeatherCard, SearchBar)
+│   │   ├── hooks/          # Custom hooks (useLocation, useWeather)
+│   │   ├── pages/          # Navigation, Dashboard, Results
+│   │   ├── services/       # API calling logic (Axios/Fetch)
+│   │   └── store/          # State management (Zustand or Redux)
+│   ├── public/
+│   └── package.json
+├── docker-compose.yml      # For running Postgres/Redis locally
+└── README.md
+
+
+Component,Technology,Why?
+Backend,Java 21 + Spring Boot 3.x,"Mature, handles heavy multi-threading for real-time alerts."
+Database,PostgreSQL + PostGIS,"Critical. Standard SQL can't easily calculate ""is this user inside a flood zone?"" PostGIS is built for this."
+Frontend,React + Vite,Vite is significantly faster than Create-React-App for modern development.
+Mapping SDK,Mapbox GL JS,"Better customization for ""off-roading"" paths than Google Maps."
+Weather Data,OpenWeatherMap or Tomorrow.io,"Tomorrow.io has excellent ""Route Weather"" APIs specifically for this."
