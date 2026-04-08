@@ -1,3 +1,13 @@
 spring:
   application:
     name: TrailCast
+  datasource:
+    url: jdbc:postgresql://localhost:5442/trailcast
+    username: Phodzo
+    password: Dbuser2026
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+
