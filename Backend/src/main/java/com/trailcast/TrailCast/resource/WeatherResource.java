@@ -18,7 +18,7 @@ public class WeatherResource {
     }
 
     @GetMapping("/weather/{city}")
-    public @ResponseBody WeatherResponse(@PathVariable("city")String city){
+    public @ResponseBody WeatherResponse weather (@PathVariable("city")String city) throws Exception {
         final weatherRequestDetails weatherRequestDetails= com.trailcast.TrailCast.service.weatherRequestDetails.builder()
                 .city(city)
                 .build();

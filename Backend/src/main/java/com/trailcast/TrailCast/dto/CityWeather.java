@@ -1,13 +1,13 @@
 package com.trailcast.TrailCast.dto;
 
-import lombok.*;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 
 @Builder
 @Setter
 @Getter
-@AllArgsConstructor
-@NoArgsConstructor
-public class WeatherResponse {
+public class CityWeather {
     private String weather;
     private String details;
 }
