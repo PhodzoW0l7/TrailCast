@@ -2,16 +2,19 @@ package com.trailcast.client;
 
 import com.trailcast.model.dto.WeatherResponseDTO;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.reactive.function.client.WebClientResponseException;
 
+@Service
 public class OpenWeatherClient {
     private final WebClient webClient;
-    @Value("${weather.openweather.api.key}")
+    @Value("${weather.openweather.api-key}")
     private final String apiKey;
 
     public OpenWeatherClient(WebClient webClient,
-                             @Value("${api.key}") String apiKey){
+                             @Value("${weather.openweather.api-key}") String apiKey){
         this.webClient=webClient;
         this.apiKey=apiKey;
     }

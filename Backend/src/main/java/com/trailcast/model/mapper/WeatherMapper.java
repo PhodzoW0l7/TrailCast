@@ -8,7 +8,7 @@ public final class WeatherMapper {
     private WeatherMapper(){}
 
     public static WeatherData toEntity(WeatherResponseDTO dto){
-        var weather=dto.weather() !=null&& !dto.weather().isEmpty() ? dto.weather().getFirst() :null;
+        var weather=dto.weather() !=null&& !dto.weather().isEmpty() ? dto.weather().get(0) :null;
 
         return new WeatherData(
                 dto.name(),
